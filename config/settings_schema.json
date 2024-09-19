@@ -1,0 +1,14 @@
+[
+    {
+      "name": "Products List Section",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection_handle",
+          "label": "Collection to display",
+          "default": "frontpage"
+        }
+      ]
+    }
+  ]
+  

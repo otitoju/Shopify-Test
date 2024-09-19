@@ -1,0 +1,27 @@
+<section class="products-list-section">
+  <div class="products-wrapper">
+    <h2>Featured Products</h2>
+    <div class="products-grid">
+      {% assign collection_handle = 'summer-collection' %}
+      {% assign collection = collections[collection_handle] %}
+
+      {% if collection.products.size > 0 %}
+        {% for product in collection.products %}
+          <div class="product-card">
+            <a href="{{ product.url }}">
+              <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" class="product-image">
+              <h3 class="product-title">{{ product.title }}</h3>
+            </a>
+            <p class="product-price">{{ product.price | money }}</p>
+            <form method="post" action="/cart/add">
+              <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+              <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+            </form>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No products found in this collection.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
